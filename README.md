@@ -11,10 +11,7 @@
 <div align="center">
 <table>
 <tr>
-<td align="center">
-<strong>95%</strong><br>
-<small>Code Quality</small>
-</td>
+
 <td align="center">
 <strong>5+</strong><br>
 <small>Supported Languages</small>
