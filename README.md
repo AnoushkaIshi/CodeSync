@@ -49,10 +49,10 @@ Code-Sync aims to revolutionize collaborative coding by integrating AI to automa
 - **Conflict-free collaboration** with AI-guided merge suggestions
 - **Version tracking** for every change and update
 
-### 🔍 AI-Driven Code Review
-- **Automated code quality checks**
-- **Detailed feedback** on bugs, optimization, and improvements
-- **Customizable review rules** based on team preferences
+### 💬 Real-Time AI Chat Support
+- **Live chatbot** to answer queries instantly
+- **Context-aware responses** for accurate and relevant help
+- **Customizable interface** to adapt to user needs and use cases
 
 </td>
 <td width="50%">
@@ -62,11 +62,10 @@ Code-Sync aims to revolutionize collaborative coding by integrating AI to automa
 - **Comprehensive code analysis** for all supported languages
 - **Easy extensibility** to add support for new languages
 
-### 🧠 Smart Issue Detection
-- **AI-based bug detection** and optimization suggestions
-- **Automated testing integration** for robust testing coverage
-- **Context-aware suggestions** for efficient collaboration
-
+### 🧠 Collaborative Whiteboard for Brainstorming
+- **Interactive whiteboard** for writing, drawing, and real-time ideation
+- **Add notes, figures, and shapes** collaboratively
+- **Seamless team collaboration** for planning and visual thinking
 </td>
 </tr>
 </table>
@@ -76,94 +75,78 @@ Code-Sync aims to revolutionize collaborative coding by integrating AI to automa
 <details>
 <summary><strong>Click to expand technical details</strong></summary>
 
-### Data Flow
+### Real-Time Code Collaboration Flow
 
-```
-Code Changes → Version Control → AI Review → Automated Merge → Sync to Team → Feedback Loop
-```
+- When a user types or changes code, the update is sent instantly via WebSocket to the server.
+- The server broadcasts the code change to all other users connected in the same room, keeping everyone’s editor in sync.
 
-### Code Review Integration
+### Unique Room ID Generation
 
-```python
-# Sample code for AI review integration
-from code_sync import CodeReviewAI
+- Each collaboration session is identified by a unique room ID.
+- This ID is generated using the `uuid` library to ensure it is globally unique and unpredictable.
+- Users create or join a room by sharing this room ID, enabling isolated real-time collaboration spaces.
 
-# Initialize AI Client
-review_ai = CodeReviewAI(api_key="YOUR_API_KEY")
+### Real-Time Chat Messaging
 
-def review_code(file_content):
-    feedback = review_ai.review(file_content)
-    return feedback
-```
+- Users can communicate instantly through a chat feature integrated alongside the code editor.
+- Chat messages are sent and received via the same WebSocket connection, allowing seamless real-time interaction.
 
-### Real-Time Sync
+### AI Code Generation (Copilot-style Feature)
 
-```python
-# Sample code for real-time synchronization
-from sync import CodeSyncClient
+- Users can request AI-generated code suggestions or completions.
+- This feature connects to an AI backend that processes prompts and returns generated code snippets, enhancing productivity.
 
-sync_client = CodeSyncClient(api_key="YOUR_API_KEY")
+### Interactive Whiteboard
 
-def sync_code_changes(repo_url):
-    changes = sync_client.get_changes(repo_url)
-    sync_client.apply_changes(changes)
-```
+- A shared whiteboard allows users to brainstorm, sketch ideas, and plan collaboratively in real-time.
+- All whiteboard interactions such as drawing or erasing are synced across connected users instantly.
 
-### Merge Conflict Resolution
+### User Presence and Layout Management
 
-```python
-# AI-powered merge conflict resolver
-from conflict_resolver import ConflictAI
-
-conflict_ai = ConflictAI(api_key="YOUR_API_KEY")
-
-def resolve_conflict(change_1, change_2):
-    resolved = conflict_ai.merge_changes(change_1, change_2)
-    return resolved
-```
+- The system tracks and displays which users are currently active in the room.
+- Users can switch between different layouts to customize their workspace, for example toggling between editor-only, whiteboard-only, or split-screen views.
 
 </details>
 
----
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-* Python 3.9+
-* API keys for CodeSync and CodeReviewAI
-* GitHub repository access for synchronization
+- Node.js (v16+ recommended)
+- npm or yarn
+- GitHub API access (for code sync)
+- Any required API keys (e.g., CodeSync, CodeReviewAI)
 
 ### Installation
 
 ```bash
-# Clone repository
+# Clone the repository
 git clone https://github.com/yourusername/code-sync.git
 cd code-sync
 
-# Set up virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
 # Install dependencies
-pip install -r requirements.txt
-
-# Configure your environment
-cp .env.example .env
-# Edit .env with your API keys and settings
+npm install
+# or
+yarn install
 ```
+
+### Configuration
+
+- Create a `.env` file in the root directory based on `.env.example`
+- Add your API keys and other configuration values
 
 ### Running the System
 
 ```bash
-# Start the code synchronization service
-python src/sync_service.py
-
-# Start the web interface
-python src/dashboard.py
+# Start the development server
+npm run dev
+# or
+yarn dev
 ```
 
----
+- Visit `http://localhost:3000` to access the dashboard and real-time chat/whiteboard.
+
 
 ## 📊 Results & Impact
 
@@ -178,14 +161,7 @@ python src/dashboard.py
 <li>Reduced manual intervention</li>
 </ul>
 </td>
-<td align="center">
-<h3>Code Quality</h3>
-<ul>
-<li>Automated bug detection</li>
-<li>Better code review practices</li>
-<li>Increased consistency</li>
-</ul>
-</td>
+
 <td align="center">
 <h3>Team Efficiency</h3>
 <ul>
